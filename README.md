@@ -6,6 +6,10 @@
 
 [Raspberrypi_Ngauge_Python/volume.py](https://github.com/mswaka/Raspberrypi_Ngauge_Python/blob/master/volume.py) - ボリュームを回すとADコンバータからGPIOを通って、SPI通信して、Pythonでデータが取得できるプログラム
 
+[Raspberrypi_Ngauge_Python/controller.py](https://github.com/mswaka/Raspberrypi_Ngauge_Python/blob/master/controller.py) - ボリュームを回した値を、PWMのデューティー比に渡して制御するプログラム(キュー・イベント駆動)
+
+[Raspberrypi_Ngauge_Python/controller2.py](https://github.com/mswaka/Raspberrypi_Ngauge_Python/blob/master/controller2.py) - ボリュームを回した値を、PWMのデューティー比に渡して制御するプログラム(シーケンシャル)
+
 # 必要なもの
 1. Raspberry pi zero
 2. PWMドライバー TB6643KQ
