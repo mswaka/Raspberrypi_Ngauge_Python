@@ -1,3 +1,9 @@
+#
+# This software is released under the MIT License, see LICENSE
+#
+# Copyright (c) 2020 chimo
+#
+
 import RPi.GPIO as GPIO
 import time
 import os
