@@ -1,3 +1,9 @@
+#
+# This software is released under the MIT License, see LICENSE
+#
+# Copyright (c) 2020 chimo
+#
+
 import os, time
 import RPi.GPIO as GPIO
 
@@ -13,8 +19,8 @@ GPIO.setup(GPIO17, GPIO.OUT)
 GPIO.setup(GPIO27, GPIO.OUT)
 
 #PWM sets
-pwm1 = GPIO.PWM(GPIO17, 60) # frequency 60Hz
-pwm2 = GPIO.PWM(GPIO27, 60) # frequency 60Hz
+pwm1 = GPIO.PWM(GPIO17, 100) # frequency 100Hz
+pwm2 = GPIO.PWM(GPIO27, 100) # frequency 100Hz
 pwm1.start(0)
 pwm2.start(0)
 
