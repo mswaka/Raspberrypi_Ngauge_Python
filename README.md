@@ -10,6 +10,10 @@
 
 [Raspberrypi_Ngauge_Python/controller2.py](https://github.com/mswaka/Raspberrypi_Ngauge_Python/blob/master/controller2.py) - ボリュームを回した値を、PWMのデューティー比に渡して制御するプログラム(シーケンシャル)
 
+# LICENSE
+
+MIT LICENSEです。
+
 # 必要なもの
 1. Raspberry pi zero
 2. PWMドライバー TB6643KQ
@@ -23,3 +27,9 @@ Rasbian OS
 /etc/rc.localを開いて、exit 0の前に、下記の実行文を記述します。
 
 python /home/pi/ngauge.py
+
+# YouTube
+
+使い方動画です。
+
+[![](https://img.youtube.com/vi/75QfVEN4zzc/0.jpg)](https://www.youtube.com/watch?v=75QfVEN4zzc)
