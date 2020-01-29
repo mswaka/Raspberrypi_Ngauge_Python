@@ -1,3 +1,9 @@
+#
+# This software is released under the MIT License, see LICENSE
+#
+# Copyright (c) 2020 chimo
+#
+
 import RPi.GPIO as GPIO
 import time
 
@@ -45,7 +51,7 @@ GPIO.setup(SPIMOSI, GPIO.OUT)
 GPIO.setup(SPIMISO, GPIO.IN)
 GPIO.setup(SPICS, GPIO.OUT)
 
-vol_old = -1
+# vol_old = -1
 
 try:
     while True:
