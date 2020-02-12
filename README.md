@@ -10,6 +10,8 @@
 
 [Raspberrypi_Ngauge_Python/controller2.py](https://github.com/mswaka/Raspberrypi_Ngauge_Python/blob/master/controller2.py) - ボリュームを回した値を、PWMのデューティー比に渡して制御するプログラム(シーケンシャル)
 
+[Raspberrypi_Ngauge_Python/controller3.py](https://github.com/mswaka/Raspberrypi_Ngauge_Python/blob/master/controller3.py) - ボリュームを回した値を、PWMのデューティー比に渡すのと、PWMの周波数に渡して制御するプログラム
+
 # LICENSE
 
 MIT LICENSEです。
