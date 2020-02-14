@@ -19,6 +19,7 @@ GPIO17 = 17  # pin11
 GPIO27 = 27  # pin13
 duty_old = 0
 freq_old = 0
+DEFINE_FREQ_MIN = 30
 DEFINE_DUTY = 0
 DEFINE_FREQ = 1
 
@@ -78,15 +79,13 @@ def frequencyvolume(q,event):
     global SPIMISO
     global SPICS
     global freq_old
-    global DEFINE_DUTY
+    global DEFINE_FREQ
 
     try:
         while True:
             print('frequencyvolume()')
             inputVal0 = readadc(1, SPICLK, SPIMOSI, SPIMISO, SPICS)
-            fvol = "{0}".format(int(inputVal0)) #1023
-            if fvol == 0:
-                fvol += 1
+            fvol = "{0}".format(int(inputVal0+DEFINE_FREQ_MIN)) #+30Hz
             if freq_old != fvol:
                 print('Yes',fvol,freq_old)
                 freq_old = fvol
@@ -141,6 +140,7 @@ def event_loop(q,event):
     print('event_loop()')
     while True:
         try:
+            event.clear()
             event.wait()
             value = q.get()
             print(value)
@@ -178,8 +178,8 @@ def main():
     #pwm
     GPIO.setup(GPIO17, GPIO.OUT)
     GPIO.setup(GPIO27, GPIO.OUT)
-    pwm1 = GPIO.PWM(GPIO17, 100) # frequency 100Hz
-    pwm2 = GPIO.PWM(GPIO27, 100) # frequency 100Hz
+    pwm1 = GPIO.PWM(GPIO17, DEFINE_FREQ_MIN) # frequency 30Hz
+    pwm2 = GPIO.PWM(GPIO27, DEFINE_FREQ_MIN) # frequency 30Hz
     pwm1.start(0)
     pwm2.start(0)
     print('main() initialize done')
@@ -190,9 +190,9 @@ def main():
         t1 = threading.Thread(target=dutyvolume, args=(q,event))
         t2 = threading.Thread(target=frequencyvolume, args=(q,event))
         t3 = threading.Thread(target=event_loop, args=(q,event))
+        t3.start()
         t1.start()
         t2.start()
-        t3.start()
         while True:
             time.sleep(0.2)
 
